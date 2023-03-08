@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcojdhorx33je"]
+
+[ext_resource type="Texture2D" uid="uid://d16aqss7acrdt" path="res://assets/sprites/tiles_packed.png" id="1_sb6iy"]
+
+[node name="World" type="Node2D"]
+
+[node name="TilesPacked" type="Sprite2D" parent="."]
+position = Vector2(181, 82)
+texture = ExtResource("1_sb6iy")
