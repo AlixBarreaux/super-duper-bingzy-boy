@@ -5,30 +5,51 @@ class_name Player
 # ----------------- DECLARE VARIABLES -----------------
 
 
+var direction: Vector2 = Vector2(1.0, 0.0)
+
+
+var gravity: float = 10.0
+var max_fall_speed: float = 350.0
+
+
+var max_move_speed: float = 100.0
+# Factor to gain gradual move acceleration
+var move_acceleration_amount: float = 20.0
+# Factor to loose gradual move acceleration
+var move_friction_amount: float = 10.0
+
+var gravity_multiplier_factor: float = 8.0
+var movement_input: float = 0.0
+var friction: float = 0.0
+
+var min_jump_force: float = -50.0
+var jump_force: float = -200
+
 
 # ----------------- RUN CODE -----------------
 
 
-var direction: Vector2 = Vector2(1.0, 0.0)
-var current_speed: float = 80.0
-
-var jump_force: float = -(self.gravity + 220.0)
-var gravity: float = 500.0
-var max_fall_speed: float = 350.0
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not self.is_on_floor():
-		self.velocity.y += gravity * delta
-		if self.velocity.y > self.max_fall_speed:
-			self.velocity.y = self.max_fall_speed
+		self.apply_gravity()
+		
+		if Input.is_action_just_released("jump") and velocity.y < self.min_jump_force:
+			self.velocity.y = self.min_jump_force
 	
-	self.direction.x = Input.get_axis("move_left", "move_right")
-	self.velocity.x = self.direction.x * current_speed
+	else:
+		if Input.is_action_just_pressed("jump"):
+			self.velocity.y = self.jump_force
 	
-	if Input.is_action_just_pressed("jump") and self.is_on_floor():
-		self.velocity.y = self.jump_force
-	print(velocity)
+
+	self.movement_input = Input.get_axis("move_left", "move_right")
+	self.direction.x = self.movement_input
 	
+	if self.movement_input == 0:
+		self.apply_movement_friction()
+	else:
+		self.apply_movement_acceleration(self.movement_input)
+	
+
 	self.move_and_slide()
 
 
@@ -39,5 +60,19 @@ func _unhandled_input(event: InputEvent) -> void:
 # ----------------- DECLARE FUNCTIONS -----------------
 
 
+func apply_gravity() -> void:
+	self.velocity.y += gravity
+	
+	if self.velocity.y > 0:
+		velocity.y += self.gravity_multiplier_factor
+	
+	if self.velocity.y > self.max_fall_speed:
+		self.velocity.y = self.max_fall_speed
 
 
+func apply_movement_acceleration(controller_input: float) -> void:
+	self.velocity.x = move_toward(self.velocity.x, (self.max_move_speed * controller_input), self.move_acceleration_amount)
+
+
+func apply_movement_friction() -> void:
+	self.velocity.x = move_toward(self.velocity.x, 0, self.move_friction_amount)

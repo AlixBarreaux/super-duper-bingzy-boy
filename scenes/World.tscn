@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://clvfahlub0qtj"]
+[gd_scene load_steps=4 format=3 uid="uid://clvfahlub0qtj"]
 
 [ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/Player.tscn" id="1_vo0lo"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_qp14q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0y2h"]
 size = Vector2(145, 20)
@@ -19,9 +18,8 @@ position = Vector2(64, 25)
 shape = SubResource("RectangleShape2D_y0y2h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(103, -25)
+position = Vector2(103, -10)
 shape = SubResource("RectangleShape2D_vxkjj")
 
 [node name="Player" parent="." instance=ExtResource("1_vo0lo")]
-position = Vector2(48, 22)
-script = ExtResource("2_qp14q")
+position = Vector2(49, 69)
