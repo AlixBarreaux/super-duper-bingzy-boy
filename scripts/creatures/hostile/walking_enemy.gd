@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 		if self.direction.x == 1:
 			floor_ledge_detector.position = position_right_floor_ledge_detector.position
 
-		elif self.direction.x == -1:
+		else:
 			floor_ledge_detector.position = position_left_floor_ledge_detector.position
 
 	self.velocity.x = direction.x * self.move_speed
