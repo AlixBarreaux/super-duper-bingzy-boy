@@ -11,3 +11,5 @@ script = ExtResource("1_pabpo")
 shape = SubResource("RectangleShape2D_dpd71")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]

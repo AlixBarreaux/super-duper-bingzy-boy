@@ -23,7 +23,7 @@ var movement_input: float = 0.0
 var friction: float = 0.0
 
 var min_jump_force: float = -50.0
-var jump_force: float = -200
+var jump_force: float = -250
 
 
 # ----------------- RUN CODE -----------------
@@ -53,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 	self.move_and_slide()
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	return
 
 
@@ -61,7 +61,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func apply_gravity() -> void:
-	self.velocity.y += gravity
+	self.velocity.y += self.gravity
 	
 	if self.velocity.y > 0:
 		velocity.y += self.gravity_multiplier_factor

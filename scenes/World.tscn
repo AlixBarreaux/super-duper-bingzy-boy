@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://clvfahlub0qtj"]
+[gd_scene load_steps=6 format=3 uid="uid://clvfahlub0qtj"]
 
 [ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/Player.tscn" id="1_vo0lo"]
+[ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/creatures/WalkingEnemy.tscn" id="2_axve2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0y2h"]
-size = Vector2(145, 20)
+size = Vector2(311.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxkjj"]
 size = Vector2(46, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwobw"]
+size = Vector2(20, 43)
 
 [node name="World" type="Node2D"]
 
@@ -14,12 +18,26 @@ size = Vector2(46, 8)
 position = Vector2(12, 78)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(64, 25)
+position = Vector2(147.25, 25)
 shape = SubResource("RectangleShape2D_y0y2h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(103, -10)
+position = Vector2(133, -43)
 shape = SubResource("RectangleShape2D_vxkjj")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ArenaBlockades"]
+shape = SubResource("RectangleShape2D_kwobw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ArenaBlockades"]
+position = Vector2(74, 0)
+shape = SubResource("RectangleShape2D_kwobw")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ArenaBlockades"]
+position = Vector2(161, -67)
+shape = SubResource("RectangleShape2D_kwobw")
+
 [node name="Player" parent="." instance=ExtResource("1_vo0lo")]
-position = Vector2(49, 69)
+position = Vector2(87, 43)
+
+[node name="WalkingEnemy" parent="." instance=ExtResource("2_axve2")]
+position = Vector2(135, 21)
