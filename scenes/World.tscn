@@ -40,4 +40,7 @@ shape = SubResource("RectangleShape2D_kwobw")
 position = Vector2(87, 43)
 
 [node name="WalkingEnemy" parent="." instance=ExtResource("2_axve2")]
+position = Vector2(48, 77)
+
+[node name="WalkingEnemy2" parent="." instance=ExtResource("2_axve2")]
 position = Vector2(135, 21)
