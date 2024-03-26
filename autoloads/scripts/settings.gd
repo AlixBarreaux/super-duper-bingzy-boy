@@ -1,5 +1,5 @@
 extends Node
-class_name SettingsGeneral
+class_name Settings
 
 
 # ----------------- DECLARE VARIABLES -----------------

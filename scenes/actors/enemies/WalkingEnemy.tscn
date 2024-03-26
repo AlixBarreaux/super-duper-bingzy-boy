@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://3n5a5e3n5bqf"]
 
-[ext_resource type="Script" path="res://scripts/creatures/hostile/walking_enemy.gd" id="1_uoecg"]
+[ext_resource type="Script" path="res://scripts/actors/enemies/walking_enemy.gd" id="1_veg2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jihiw"]
 
 [node name="WalkingEnemy" type="CharacterBody2D"]
-script = ExtResource("1_uoecg")
+script = ExtResource("1_veg2i")
 move_speed = 20.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
