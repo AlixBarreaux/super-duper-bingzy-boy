@@ -24,6 +24,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://resources/main_theme.tres"
+
 [input]
 
 move_left={
@@ -50,3 +54,4 @@ jump={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
