@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://clvfahlub0qtj"]
+[gd_scene load_steps=9 format=3 uid="uid://clvfahlub0qtj"]
 
 [ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/Player.tscn" id="1_vo0lo"]
+[ext_resource type="Script" path="res://experiments/level_boundaries.gd" id="1_xyfmm"]
 [ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/actors/enemies/WalkingEnemy.tscn" id="2_axve2"]
+[ext_resource type="PackedScene" uid="uid://c1mh5fhr2xxc0" path="res://scenes/camera_main.tscn" id="3_vhemg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0y2h"]
-size = Vector2(311.5, 20)
+size = Vector2(1920, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxkjj"]
 size = Vector2(46, 8)
@@ -12,35 +14,60 @@ size = Vector2(46, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwobw"]
 size = Vector2(20, 43)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyf60"]
+size = Vector2(64, 768)
+
 [node name="World" type="Node2D"]
 
 [node name="ArenaBlockades" type="StaticBody2D" parent="."]
-position = Vector2(12, 78)
+position = Vector2(12, 1177)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(147.25, 25)
+position = Vector2(948, -1194)
 shape = SubResource("RectangleShape2D_y0y2h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(133, -43)
+position = Vector2(133, -1262)
 shape = SubResource("RectangleShape2D_vxkjj")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ArenaBlockades"]
+position = Vector2(0, -1219)
 shape = SubResource("RectangleShape2D_kwobw")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(74, 0)
+position = Vector2(74, -1218)
 shape = SubResource("RectangleShape2D_kwobw")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(161, -67)
+position = Vector2(161, -1286)
 shape = SubResource("RectangleShape2D_kwobw")
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ArenaBlockades"]
+position = Vector2(0, -1218)
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="."]
+script = ExtResource("1_xyfmm")
+
+[node name="BoundaryLeft" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(-32, -384)
+shape = SubResource("RectangleShape2D_vyf60")
+
+[node name="BoundaryRight" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1952, -384)
+shape = SubResource("RectangleShape2D_vyf60")
+
 [node name="Player" parent="." instance=ExtResource("1_vo0lo")]
-position = Vector2(87, 43)
+position = Vector2(545, -73)
 
 [node name="WalkingEnemy" parent="." instance=ExtResource("2_axve2")]
-position = Vector2(48, 77)
+position = Vector2(48, -37)
 
 [node name="WalkingEnemy2" parent="." instance=ExtResource("2_axve2")]
-position = Vector2(135, 21)
+position = Vector2(135, -99)
+
+[node name="CameraMain" parent="." node_paths=PackedStringArray("actor_to_follow", "level_boundaries") instance=ExtResource("3_vhemg")]
+position = Vector2(0, -1024)
+limit_smoothed = true
+position_smoothing_enabled = true
+actor_to_follow = NodePath("../Player")
+level_boundaries = NodePath("../LevelBoundaries")
