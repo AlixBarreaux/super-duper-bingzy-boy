@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c26c6v44gvxw8"]
+
+[ext_resource type="Script" path="res://experiments/text_going_up_displayer.gd" id="1_4tpdm"]
+
+[node name="TextGoingUpDisplayer" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "000000000"
+script = ExtResource("1_4tpdm")
