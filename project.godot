@@ -16,6 +16,10 @@ run/main_scene="res://scenes/World.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://miscellaneous/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://resources/main_audio_bus_layout.tres"
+
 [display]
 
 window/size/viewport_width=1920
