@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://clvfahlub0qtj"]
+[gd_scene load_steps=8 format=3 uid="uid://clvfahlub0qtj"]
 
+[ext_resource type="PackedScene" uid="uid://dd34c0dctbkpu" path="res://scenes/level_boundaries.tscn" id="1_gqnop"]
 [ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/Player.tscn" id="1_vo0lo"]
-[ext_resource type="Script" path="res://experiments/level_boundaries.gd" id="1_xyfmm"]
 [ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/actors/enemies/WalkingEnemy.tscn" id="2_axve2"]
 [ext_resource type="PackedScene" uid="uid://c1mh5fhr2xxc0" path="res://scenes/camera_main.tscn" id="3_vhemg"]
 
@@ -13,9 +13,6 @@ size = Vector2(46, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwobw"]
 size = Vector2(20, 43)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyf60"]
-size = Vector2(64, 768)
 
 [node name="World" type="Node2D"]
 
@@ -45,16 +42,7 @@ shape = SubResource("RectangleShape2D_kwobw")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="ArenaBlockades"]
 position = Vector2(0, -1218)
 
-[node name="LevelBoundaries" type="StaticBody2D" parent="."]
-script = ExtResource("1_xyfmm")
-
-[node name="BoundaryLeft" type="CollisionShape2D" parent="LevelBoundaries"]
-position = Vector2(-32, -384)
-shape = SubResource("RectangleShape2D_vyf60")
-
-[node name="BoundaryRight" type="CollisionShape2D" parent="LevelBoundaries"]
-position = Vector2(1952, -384)
-shape = SubResource("RectangleShape2D_vyf60")
+[node name="LevelBoundaries" parent="." instance=ExtResource("1_gqnop")]
 
 [node name="Player" parent="." instance=ExtResource("1_vo0lo")]
 position = Vector2(545, -73)
@@ -70,4 +58,4 @@ position = Vector2(0, -1024)
 limit_smoothed = true
 position_smoothing_enabled = true
 actor_to_follow = NodePath("../Player")
-level_boundaries = NodePath("../LevelBoundaries")
+level_boundaries = NodePath("")
