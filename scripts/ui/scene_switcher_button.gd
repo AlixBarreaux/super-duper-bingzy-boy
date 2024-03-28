@@ -7,7 +7,11 @@ class_name SceneSwitcherButton
 
 
 func _ready() -> void:
-	assert(scene_to_load_file_path != "" or scene_to_load_packed_scene != null)
+	assert(scene_to_load_file_path != "" or scene_to_load_packed_scene != null, 
+	"1 (and only 1) of the 2 \"scene to load\" field must be filled!")
+	
+	assert(not (scene_to_load_file_path != "" and scene_to_load_packed_scene != null), 
+	"1 (and only 1) of the 2 \"scene to load\" field must be filled!")
 
 
 func _on_pressed() -> void:
