@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd34c0dctbkpu"]
+
+[ext_resource type="Script" path="res://scripts/level_boundaries.gd" id="1_agyk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyf60"]
+size = Vector2(64, 768)
+
+[node name="LevelBoundaries" type="StaticBody2D"]
+script = ExtResource("1_agyk5")
+
+[node name="BoundaryLeft" type="CollisionShape2D" parent="."]
+position = Vector2(-32, -384)
+shape = SubResource("RectangleShape2D_vyf60")
+
+[node name="BoundaryRight" type="CollisionShape2D" parent="."]
+position = Vector2(1952, -384)
+shape = SubResource("RectangleShape2D_vyf60")
