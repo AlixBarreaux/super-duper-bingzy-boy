@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkreb7ub1x2vi"]
+
+[ext_resource type="PackedScene" uid="uid://b4tmfky0ivayh" path="res://scenes/ui/app_title_label.tscn" id="1_c38hb"]
+[ext_resource type="PackedScene" uid="uid://b65cl32c1r5jy" path="res://scenes/ui/buttons/quit_to_desktop_button.tscn" id="1_iutri"]
+[ext_resource type="PackedScene" uid="uid://bkfe4rk5wohw" path="res://scenes/ui/buttons/show_node_button.tscn" id="1_w231j"]
+[ext_resource type="PackedScene" uid="uid://l5hwsnjkvo0q" path="res://scenes/ui/buttons/scene_switcher_button.tscn" id="2_210vn"]
+[ext_resource type="PackedScene" uid="uid://gmnxifr44lo" path="res://scenes/ui/version_label.tscn" id="2_dhkvw"]
+[ext_resource type="PackedScene" uid="uid://blnhexja8sjnn" path="res://scenes/ui/level_selection_ui.tscn" id="4_sy1sj"]
+[ext_resource type="PackedScene" uid="uid://dgvpcmutdca3n" path="res://experiments/control_focus.tscn" id="5_1v42y"]
+
+[node name="MainMenu" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="AppTitleLabel" parent="." instance=ExtResource("1_c38hb")]
+layout_mode = 1
+offset_left = -663.0
+offset_top = 29.0
+offset_right = 663.0
+offset_bottom = 106.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -255.0
+offset_right = 255.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGameButton" parent="VBoxContainer" instance=ExtResource("2_210vn")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game"
+scene_to_load_file_path = "res://scenes/World.tscn"
+
+[node name="LevelSelectionButton" parent="VBoxContainer" node_paths=PackedStringArray("node") instance=ExtResource("1_w231j")]
+layout_mode = 2
+text = "Select Level"
+node = NodePath("../../LevelSelectionUI")
+
+[node name="OptionsButton" parent="VBoxContainer" node_paths=PackedStringArray("node") instance=ExtResource("1_w231j")]
+layout_mode = 2
+text = "Options"
+node = NodePath("../../LevelSelectionUI")
+
+[node name="QuitToDesktopButton" parent="VBoxContainer" instance=ExtResource("1_iutri")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VersionLabel" parent="." instance=ExtResource("2_dhkvw")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Version 0.0.0"
+
+[node name="LevelSelectionUI" parent="." instance=ExtResource("4_sy1sj")]
+visible = false
+layout_mode = 1
+
+[node name="ControlFocus" parent="." node_paths=PackedStringArray("initial_node_to_focus") instance=ExtResource("5_1v42y")]
+initial_node_to_focus = NodePath("../VBoxContainer/NewGameButton")

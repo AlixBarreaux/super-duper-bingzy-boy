@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://qh0ylf1wbswu"]
+
+[ext_resource type="Script" path="res://scripts/ui/score_counter_ui.gd" id="1_67w8s"]
+
+[node name="ScoreCounterUI" type="Label"]
+text = "000 000 000"
+script = ExtResource("1_67w8s")

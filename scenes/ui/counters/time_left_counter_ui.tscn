@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb16d4i07nq6y"]
+
+[ext_resource type="Script" path="res://scripts/ui/time_left_counter_ui.gd" id="1_b46rm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qtvr6"]
+load_path = "res://.godot/imported/icon.svg-a1de49510920a77adef62f8027947eeb.ctex"
+
+[node name="TimeLeftCounterUI" type="HBoxContainer"]
+size_flags_vertical = 3
+script = ExtResource("1_b46rm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_qtvr6")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0000"
+horizontal_alignment = 2
+vertical_alignment = 1

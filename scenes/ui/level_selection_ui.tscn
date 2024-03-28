@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://blnhexja8sjnn"]
+
+[ext_resource type="Texture2D" uid="uid://37fu3trneawi" path="res://miscellaneous/icon.svg" id="1_6wwe5"]
+[ext_resource type="PackedScene" uid="uid://bqr1mf8uk8nlo" path="res://scenes/ui/buttons/hide_node_button.tscn" id="2_hehgp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s3c6"]
+bg_color = Color(0.792157, 0.792157, 0.792157, 1)
+
+[node name="LevelSelectionUI" type="Panel"]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"PanelOpaque"
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -537.0
+offset_top = 62.0
+offset_right = 537.0
+offset_bottom = 85.0
+grow_horizontal = 2
+text = "Title"
+horizontal_alignment = 1
+
+[node name="LevelSelectorUI" type="Panel" parent="."]
+layout_mode = 2
+offset_right = 586.0
+offset_bottom = 393.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0s3c6")
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelSelectorUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectorUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="LevelSelectorUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="LevelSelectorUI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_6wwe5")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="BackButton" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_hehgp")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -161.0
+offset_right = 223.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+node = NodePath("..")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmnxifr44lo"]
+
+[ext_resource type="Script" path="res://scripts/ui/version_label.gd" id="1_qnrhh"]
+
+[node name="VersionLabel" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_qnrhh")
