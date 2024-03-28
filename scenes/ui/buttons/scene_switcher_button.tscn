@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://l5hwsnjkvo0q"]
+
+[ext_resource type="Script" path="res://scripts/ui/scene_switcher_button.gd" id="1_b32ba"]
+
+[node name="SceneSwitcherButton" type="Button"]
+texture_filter = 2
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_b32ba")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

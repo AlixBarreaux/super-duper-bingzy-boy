@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqr1mf8uk8nlo"]
+
+[ext_resource type="Script" path="res://scripts/ui/hide_node_button.gd" id="1_msg0x"]
+
+[node name="HideNodeButton" type="Button"]
+texture_filter = 2
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_msg0x")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

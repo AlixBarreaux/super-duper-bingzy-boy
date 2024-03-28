@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkfe4rk5wohw"]
+
+[ext_resource type="Script" path="res://scripts/ui/show_node_button.gd" id="1_cdpc8"]
+
+[node name="ShowNodeButton" type="Button"]
+texture_filter = 2
+size_flags_vertical = 3
+script = ExtResource("1_cdpc8")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

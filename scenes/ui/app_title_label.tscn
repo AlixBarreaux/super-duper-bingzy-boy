@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4tmfky0ivayh"]
+
+[ext_resource type="Script" path="res://scripts/ui/app_title_label.gd" id="1_r13p1"]
+
+[node name="AppTitleLabel" type="Label"]
+texture_filter = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 43.0
+offset_right = 20.0
+offset_bottom = 66.0
+grow_horizontal = 2
+text = "App Title Label"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_r13p1")
