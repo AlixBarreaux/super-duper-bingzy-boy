@@ -6,8 +6,8 @@ class_name ShowNodeButton
 
 
 func _ready() -> void:
-	assert(node != null)
-	assert(node != self)
+	assert(node != null, "node can't be null!")
+	assert(node != self, "node can't be the node this script is attached to!")
 
 
 func _on_pressed() -> void:

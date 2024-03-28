@@ -10,8 +10,8 @@ extends Camera2D
 
 
 func _ready() -> void:
-	assert(actor_to_follow != null)
-	assert(level_boundaries != null)
+	assert(actor_to_follow != null, "actor_to_follow must bet set!")
+	assert(level_boundaries != null, "level_boundaries must be set!")
 	
 	self.set_limit(SIDE_LEFT, level_boundary_left.get_global_position().x)
 	self.set_limit(SIDE_RIGHT, level_boundary_right.get_global_position().x)
