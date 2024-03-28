@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgvpcmutdca3n"]
+
+[ext_resource type="Script" path="res://experiments/control_focus.gd" id="1_361jh"]
+
+[node name="ControlFocus" type="Node"]
+script = ExtResource("1_361jh")
