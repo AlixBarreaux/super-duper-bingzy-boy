@@ -2,6 +2,10 @@ extends CharacterBody2D
 class_name Player
 
 
+var id: int = 0
+
+@onready var camera_focus_point: Marker2D = $CameraFocusPoint
+
 var direction: Vector2 = Vector2(1.0, 0.0)
 
 
@@ -17,15 +21,16 @@ var move_acceleration_amount: float = 20.0
 ## Factor to loose gradual move acceleration
 var move_friction_amount: float = 30.0
 
-var gravity_multiplier_factor: float = 8.0
+var gravity_multiplier_factor: float = 14.0
 var friction: float = 0.0
 
 var min_jump_force: float = -50.0
-var jump_force: float = -250
+var jump_force: float = -500
 
 
 var movement_input: Vector2 = Vector2(0.0, 0.0)
 var is_secondary_action_pressed: bool = false
+
 
 func _unhandled_key_input(_event: InputEvent) -> void:
 	self.movement_input.x = Input.get_axis("move_left", "move_right")
@@ -74,3 +79,9 @@ func apply_movement_acceleration() -> void:
 
 func apply_movement_friction() -> void:
 	self.velocity.x = move_toward(self.velocity.x, 0, self.move_friction_amount)
+
+
+signal died(id: int)
+
+func die() -> void:
+	died.emit(self.id)

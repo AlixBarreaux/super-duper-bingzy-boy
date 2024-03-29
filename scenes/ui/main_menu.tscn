@@ -43,7 +43,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 text = "New Game"
-scene_to_load_file_path = "res://scenes/World.tscn"
+scene_to_load_file_path = "res://experiments/game.tscn"
 
 [node name="LevelSelectionButton" parent="VBoxContainer" node_paths=PackedStringArray("node") instance=ExtResource("1_w231j")]
 layout_mode = 2

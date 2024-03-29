@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://daw13re1emgp7"]
+
+[ext_resource type="PackedScene" uid="uid://ixsq5j4wl5uk" path="res://scenes/ui/pause_menu.tscn" id="1_jtpe6"]
+[ext_resource type="PackedScene" uid="uid://wudpveqnf8cj" path="res://scenes/ui/stats_ui.tscn" id="2_yag5k"]
+
+[node name="InGameCanvasLayer" type="CanvasLayer"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_jtpe6")]
+visible = false
+
+[node name="StatsUI" parent="." instance=ExtResource("2_yag5k")]

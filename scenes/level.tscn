@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://clvfahlub0qtj"]
+[gd_scene load_steps=10 format=3 uid="uid://clvfahlub0qtj"]
 
 [ext_resource type="PackedScene" uid="uid://dd34c0dctbkpu" path="res://scenes/level_boundaries.tscn" id="1_gqnop"]
-[ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/Player.tscn" id="1_vo0lo"]
+[ext_resource type="Script" path="res://experiments/level.gd" id="1_hflw5"]
 [ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/actors/enemies/WalkingEnemy.tscn" id="2_axve2"]
+[ext_resource type="PackedScene" uid="uid://vwhwlkl72cbl" path="res://experiments/actors.tscn" id="3_012w5"]
 [ext_resource type="PackedScene" uid="uid://c1mh5fhr2xxc0" path="res://scenes/camera_main.tscn" id="3_vhemg"]
+[ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/player.tscn" id="5_mnf33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0y2h"]
 size = Vector2(1920, 20)
@@ -14,7 +16,8 @@ size = Vector2(46, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwobw"]
 size = Vector2(20, 43)
 
-[node name="World" type="Node2D"]
+[node name="Level" type="Node2D"]
+script = ExtResource("1_hflw5")
 
 [node name="ArenaBlockades" type="StaticBody2D" parent="."]
 position = Vector2(12, 1177)
@@ -44,18 +47,21 @@ position = Vector2(0, -1218)
 
 [node name="LevelBoundaries" parent="." instance=ExtResource("1_gqnop")]
 
-[node name="Player" parent="." instance=ExtResource("1_vo0lo")]
-position = Vector2(545, -73)
+[node name="Actors" parent="." instance=ExtResource("3_012w5")]
 
-[node name="WalkingEnemy" parent="." instance=ExtResource("2_axve2")]
-position = Vector2(48, -37)
+[node name="WalkingEnemy" parent="Actors/NPCs" index="0" instance=ExtResource("2_axve2")]
+position = Vector2(48, -48)
 
-[node name="WalkingEnemy2" parent="." instance=ExtResource("2_axve2")]
-position = Vector2(135, -99)
+[node name="WalkingEnemy2" parent="Actors/NPCs" index="1" instance=ExtResource("2_axve2")]
+position = Vector2(144, -112)
+
+[node name="Player" parent="Actors/Players" index="0" instance=ExtResource("5_mnf33")]
 
 [node name="CameraMain" parent="." node_paths=PackedStringArray("actor_to_follow", "level_boundaries") instance=ExtResource("3_vhemg")]
 position = Vector2(0, -1024)
 limit_smoothed = true
 position_smoothing_enabled = true
-actor_to_follow = NodePath("../Player")
-level_boundaries = NodePath("")
+actor_to_follow = NodePath("../Actors/Players/Player")
+level_boundaries = NodePath("../LevelBoundaries")
+
+[editable path="Actors"]
