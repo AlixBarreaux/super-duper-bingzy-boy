@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/player.tscn" id="5_mnf33"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0y2h"]
-size = Vector2(1920, 20)
+size = Vector2(1920, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vxkjj"]
 size = Vector2(46, 8)
@@ -23,7 +23,7 @@ script = ExtResource("1_hflw5")
 position = Vector2(12, 1177)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaBlockades"]
-position = Vector2(948, -1194)
+position = Vector2(948, -1193)
 shape = SubResource("RectangleShape2D_y0y2h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ArenaBlockades"]
@@ -56,11 +56,10 @@ position = Vector2(48, -48)
 position = Vector2(144, -112)
 
 [node name="Player" parent="Actors/Players" index="0" instance=ExtResource("5_mnf33")]
+position = Vector2(544, -32)
 
 [node name="CameraMain" parent="." node_paths=PackedStringArray("actor_to_follow", "level_boundaries") instance=ExtResource("3_vhemg")]
-position = Vector2(0, -1024)
-limit_smoothed = true
-position_smoothing_enabled = true
+position = Vector2(848, -768)
 actor_to_follow = NodePath("../Actors/Players/Player")
 level_boundaries = NodePath("../LevelBoundaries")
 
