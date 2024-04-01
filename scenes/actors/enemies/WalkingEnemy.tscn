@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://3n5a5e3n5bqf"]
+[gd_scene load_steps=5 format=3 uid="uid://3n5a5e3n5bqf"]
 
 [ext_resource type="Script" path="res://scripts/actors/enemies/walking_enemy.gd" id="1_veg2i"]
 [ext_resource type="PackedScene" uid="uid://bb8wcqkbwhuxk" path="res://scenes/actors/components/gravity.tscn" id="2_6tnj8"]
+[ext_resource type="PackedScene" uid="uid://d00bv3vmdcanp" path="res://scenes/actors/components/actor_movement_side_walk.tscn" id="3_gvc4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jihiw"]
 
@@ -25,3 +26,5 @@ position = Vector2(-10, 10)
 position = Vector2(10, 10)
 
 [node name="Gravity" parent="." instance=ExtResource("2_6tnj8")]
+
+[node name="ActorMovementSideWalk" parent="." instance=ExtResource("3_gvc4q")]
