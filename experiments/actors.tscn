@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://experiments/actors.gd" id="1_gu303"]
 [ext_resource type="PackedScene" uid="uid://cfshw45e4b2r8" path="res://experiments/npcs.tscn" id="1_r06oc"]
-[ext_resource type="PackedScene" uid="uid://cdqc8id4cuswo" path="res://experiments/players.tscn" id="3_q0jol"]
+[ext_resource type="PackedScene" uid="uid://cdqc8id4cuswo" path="res://scenes/players.tscn" id="3_mf14k"]
 
 [node name="Actors" type="Node"]
 script = ExtResource("1_gu303")
 
 [node name="NPCs" parent="." instance=ExtResource("1_r06oc")]
 
-[node name="Players" parent="." instance=ExtResource("3_q0jol")]
+[node name="Players" parent="." instance=ExtResource("3_mf14k")]

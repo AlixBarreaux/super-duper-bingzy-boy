@@ -47,9 +47,17 @@ func on_player_died(_id: int) -> void:
 	self.decrease_lives()
 
 
+signal ready_initialized
+
 func _ready() -> void:
 	await game.ready
+	print(self.name, ": Ready!")
+	await game.level_loaded
+	print(self.name, ": Level loaded!")
 	level = game.level
+	await level.ready
 	actors = level.actors
 	players = actors.players
 	players.player_died.connect(on_player_died)
+	
+	ready_initialized.emit()

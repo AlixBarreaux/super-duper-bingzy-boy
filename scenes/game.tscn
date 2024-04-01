@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://nvuqhm7u4xkd"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_kwic2"]
+[ext_resource type="PackedScene" uid="uid://bi3i2dtjn2ayd" path="res://experiments/stats.tscn" id="2_flw0e"]
+[ext_resource type="PackedScene" uid="uid://daw13re1emgp7" path="res://experiments/in_game_canvas_layer.tscn" id="3_hypnl"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_kwic2")
+
+[node name="Stats" parent="." instance=ExtResource("2_flw0e")]
+
+[node name="InGameCanvasLayer" parent="." instance=ExtResource("3_hypnl")]
+
+[editable path="InGameCanvasLayer"]

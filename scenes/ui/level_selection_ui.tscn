@@ -1,10 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://blnhexja8sjnn"]
 
-[ext_resource type="Texture2D" uid="uid://37fu3trneawi" path="res://miscellaneous/icon.svg" id="1_6wwe5"]
+[ext_resource type="PackedScene" uid="uid://catduxw18kfhh" path="res://scenes/ui/level_selector_ui.tscn" id="1_epwym"]
+[ext_resource type="Script" path="res://scripts/ui/level_selection_ui.gd" id="1_omyop"]
 [ext_resource type="PackedScene" uid="uid://bqr1mf8uk8nlo" path="res://scenes/ui/buttons/hide_node_button.tscn" id="2_hehgp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s3c6"]
-bg_color = Color(0.792157, 0.792157, 0.792157, 1)
 
 [node name="LevelSelectionUI" type="Panel"]
 texture_filter = 2
@@ -14,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"PanelOpaque"
+script = ExtResource("1_omyop")
 
 [node name="TitleLabel" type="Label" parent="."]
 layout_mode = 1
@@ -28,40 +27,24 @@ grow_horizontal = 2
 text = "Title"
 horizontal_alignment = 1
 
-[node name="LevelSelectorUI" type="Panel" parent="."]
-layout_mode = 2
-offset_right = 586.0
-offset_bottom = 393.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0s3c6")
-
-[node name="MarginContainer" type="MarginContainer" parent="LevelSelectorUI"]
+[node name="LevelsContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -813.0
+offset_top = -236.0
+offset_right = 813.0
+offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelectorUI/MarginContainer"]
+[node name="LevelSelectorUI" parent="LevelsContainer" instance=ExtResource("1_epwym")]
 layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="LevelSelectorUI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Level Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="LevelSelectorUI/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("1_6wwe5")
-expand_mode = 3
-stretch_mode = 6
+size_flags_horizontal = 3
+level_to_load_file_path = "res://scenes/levels/level_test.tscn"
 
 [node name="BackButton" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_hehgp")]
 layout_mode = 1

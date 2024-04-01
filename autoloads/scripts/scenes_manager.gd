@@ -1,5 +1,5 @@
 extends Node
-#class_name SceneSwitcher
+#class_name ScenesManager
 
 
 func switch_node_to_scene_file_path(node_to_free: Node, scene_to_switch_to_file_path: String) -> void:
@@ -30,3 +30,29 @@ func switch_node_to_packed_scene(node_to_free: Node, packed_scene: PackedScene) 
 	#var scene_to_switch_to_instance: Node = scene_to_switch_to.instantiate()
 #
 	#get_tree().get_root().add_child.call_deferred(scene_to_switch_to_instance)
+
+
+@export_file var game_file_path: String = ""
+
+func load_level(level_file_path: String) -> void:
+	var root_node: Viewport = get_tree().get_root()
+	
+	var game_scene: Resource = load(game_file_path)
+	var game_instance: Game = game_scene.instantiate()
+	root_node.add_child.call_deferred(game_instance)
+	
+	await get_tree().process_frame
+	
+	var game: Game = root_node.get_node("Game")
+	print(self.name, " game node added: ", game)
+	
+	var scene_to_switch_to: Resource = load(level_file_path)
+	var scene_to_switch_to_instance: Level = scene_to_switch_to.instantiate()
+	
+	game.add_child(scene_to_switch_to_instance)
+	#var level: Level = 
+	#move_child(, 0)
+
+
+func _ready() -> void:
+	assert(FileAccess.file_exists(game_file_path), "Couldn't find file!")

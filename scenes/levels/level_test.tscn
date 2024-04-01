@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3m5ukvillmx2"]
+
+[ext_resource type="PackedScene" uid="uid://clvfahlub0qtj" path="res://scenes/levels/level.tscn" id="1_rchbi"]
+[ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/actors/enemies/WalkingEnemy.tscn" id="2_qaqaq"]
+[ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/player.tscn" id="3_etgeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shr70"]
+size = Vector2(1920, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ohvk"]
+size = Vector2(46, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2bw0"]
+size = Vector2(20, 43)
+
+[node name="LevelTest" instance=ExtResource("1_rchbi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArenaBlockades" index="0"]
+position = Vector2(948, -1193)
+shape = SubResource("RectangleShape2D_shr70")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ArenaBlockades" index="1"]
+position = Vector2(137, -1281)
+shape = SubResource("RectangleShape2D_2ohvk")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ArenaBlockades" index="2"]
+position = Vector2(4, -1238)
+shape = SubResource("RectangleShape2D_g2bw0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ArenaBlockades" index="3"]
+position = Vector2(78, -1237)
+shape = SubResource("RectangleShape2D_g2bw0")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ArenaBlockades" index="4"]
+position = Vector2(165, -1305)
+shape = SubResource("RectangleShape2D_g2bw0")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ArenaBlockades" index="5"]
+position = Vector2(4, -1237)
+
+[node name="WalkingEnemy" parent="Actors/NPCs" index="0" instance=ExtResource("2_qaqaq")]
+position = Vector2(48, -48)
+
+[node name="WalkingEnemy2" parent="Actors/NPCs" index="1" instance=ExtResource("2_qaqaq")]
+position = Vector2(144, -112)
+
+[node name="Player" parent="Actors/Players" index="0" instance=ExtResource("3_etgeo")]
+position = Vector2(544, -32)
+
+[node name="CameraMain" parent="." index="3" node_paths=PackedStringArray("actor_to_follow")]
+actor_to_follow = NodePath("../Actors/Players/Player")
+
+[editable path="LevelBoundaries"]
+[editable path="Actors"]

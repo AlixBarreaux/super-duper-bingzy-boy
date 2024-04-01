@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://clcbi707an60t"]
+
+[ext_resource type="Script" path="res://autoloads/scripts/scenes_manager.gd" id="1_4g6bq"]
+
+[node name="ScenesManager" type="Node"]
+script = ExtResource("1_4g6bq")
+game_file_path = "res://scenes/game.tscn"

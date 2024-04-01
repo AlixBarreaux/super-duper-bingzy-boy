@@ -3,7 +3,6 @@ class_name LivesCounterUI
 
 
 @onready var game: Game = get_tree().get_root().get_node("Game")
-var level: Level = null
 var stats: Stats = null
 @onready var label: Label = $Label
 
@@ -13,8 +12,7 @@ func on_lives_changed(value: int) -> void:
 
 
 func _ready() -> void:
-	await get_tree().get_root().ready
-	level = game.level
+	await game.level_loaded
 	stats = game.stats
 	
 	self.label.set_text("x " + str(stats.lives))
