@@ -10,8 +10,8 @@ var direction: Vector2 = Vector2(1.0, 0.0)
 
 
 var move_speed: float = 0.0
-var max_walk_speed: float = 250.0
-var max_run_speed: float = 500.0
+var max_walk_speed: float = 500.0
+var max_run_speed: float = 1000.0
 ## Factor to gain gradual move acceleration
 var move_acceleration_amount: float = 20.0
 ## Factor to loose gradual move acceleration
