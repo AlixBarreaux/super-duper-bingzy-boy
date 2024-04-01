@@ -36,3 +36,5 @@ size_flags_vertical = 3
 texture = ExtResource("2_qdlt1")
 expand_mode = 3
 stretch_mode = 6
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

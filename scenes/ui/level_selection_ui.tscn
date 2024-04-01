@@ -44,7 +44,7 @@ grow_vertical = 2
 [node name="LevelSelectorUI" parent="LevelsContainer" instance=ExtResource("1_epwym")]
 layout_mode = 2
 size_flags_horizontal = 3
-level_to_load_file_path = "res://scenes/levels/level_test.tscn"
+next_level_to_load_file_name = "level_test"
 
 [node name="BackButton" parent="." node_paths=PackedStringArray("node") instance=ExtResource("2_hehgp")]
 layout_mode = 1
