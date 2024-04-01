@@ -13,6 +13,5 @@ func _ready() -> void:
 	
 	for player: Player in self.get_children():
 		id_counter += 1
-		print(id_counter)
 		player.id = id_counter
 		player.died.connect(on_player_died)
