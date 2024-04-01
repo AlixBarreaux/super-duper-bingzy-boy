@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://03xkuno7sv3l"]
 
-[ext_resource type="Script" path="res://scripts/actors/components/actor_movement_straight_line.gd" id="1_11wil"]
+[ext_resource type="Script" path="res://scripts/actors/components/actor_movement_straight_line.gd" id="1_hqswo"]
 
 [node name="ActorMovementStraightLine" type="Node"]
-script = ExtResource("1_11wil")
+script = ExtResource("1_hqswo")
