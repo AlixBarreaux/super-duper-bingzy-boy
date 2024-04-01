@@ -9,10 +9,6 @@ var id: int = 0
 var direction: Vector2 = Vector2(1.0, 0.0)
 
 
-var gravity: float = 10.0
-var max_fall_speed: float = 350.0
-
-
 var move_speed: float = 0.0
 var max_walk_speed: float = 250.0
 var max_run_speed: float = 500.0
@@ -21,11 +17,10 @@ var move_acceleration_amount: float = 20.0
 ## Factor to loose gradual move acceleration
 var move_friction_amount: float = 30.0
 
-var gravity_multiplier_factor: float = 14.0
 var friction: float = 0.0
 
-var min_jump_force: float = -50.0
-var jump_force: float = -500
+var min_jump_force: float = -500.0
+var jump_force: float = -2000
 
 
 var movement_input: Vector2 = Vector2(0.0, 0.0)
@@ -39,7 +34,7 @@ func _unhandled_key_input(_event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if not self.is_on_floor():
-		self.apply_gravity()
+		#self.apply_gravity()
 		
 		if Input.is_action_just_released("action_primary") and velocity.y < self.min_jump_force:
 			self.velocity.y = self.min_jump_force
@@ -56,16 +51,6 @@ func _physics_process(_delta: float) -> void:
 		self.apply_movement_acceleration()
 	
 	self.move_and_slide()
-
-
-func apply_gravity() -> void:
-	self.velocity.y += self.gravity
-	
-	if self.velocity.y > 0:
-		velocity.y += self.gravity_multiplier_factor
-	
-	if self.velocity.y > self.max_fall_speed:
-		self.velocity.y = self.max_fall_speed
 
 
 func apply_movement_acceleration() -> void:

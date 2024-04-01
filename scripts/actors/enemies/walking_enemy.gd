@@ -16,15 +16,15 @@ class_name WalkingEnemy
 
 var gravity: float = 10.0
 var max_fall_speed: float = 350.0
-var gravity_multiplier_factor: float = 8.0
+#var gravity_multiplier_factor: float = 8.0
 
 
 # ----------------- RUN CODE -----------------
 
 
 func _physics_process(_delta: float) -> void:
-	if not self.is_on_floor():
-		self.apply_gravity()
+	#if not self.is_on_floor():
+		#self.apply_gravity()
 	
 	if ((self.is_on_wall()) or (not floor_ledge_detector.is_colliding())) and self.is_on_floor():
 		self.direction *= -1
@@ -43,11 +43,11 @@ func _physics_process(_delta: float) -> void:
 # ----------------- DECLARE FUNCTIONS -----------------
 
 
-func apply_gravity() -> void:
-	self.velocity.y += self.gravity
-	
-	if self.velocity.y > 0:
-		velocity.y += self.gravity_multiplier_factor
-	
-	if self.velocity.y > self.max_fall_speed:
-		self.velocity.y = self.max_fall_speed
+#func apply_gravity() -> void:
+	#self.velocity.y += self.gravity
+	#
+	#if self.velocity.y > 0:
+		#velocity.y += self.gravity_multiplier_factor
+	#
+	#if self.velocity.y > self.max_fall_speed:
+		#self.velocity.y = self.max_fall_speed
