@@ -2,7 +2,9 @@ extends Node2D
 class_name Level
 
 
-@export_file var next_scene_to_load_file_path: String = ""
+const LEVELS_DIRECTORY: String = "res://scenes/levels/"
+@export var next_level_to_load_file_name: String = ""
+@onready var next_scene_to_load_file_path: String = LEVELS_DIRECTORY + next_level_to_load_file_name + ".tscn"
 
 @onready var actors: Actors = $Actors
 
@@ -15,5 +17,4 @@ func on_completed() -> void:
 
 
 func _ready() -> void:
-	#assert(next_scene_to_load_file_path != "", "The next scene to load must be provided!")
-	pass
+	assert(next_scene_to_load_file_path != "", "The next scene to load must be provided!")
