@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/actors/components/gravity.gd" id="1_5in4s"]
 
-[node name="Gravity" type="Node2D"]
+[node name="Gravity" type="Node"]
 script = ExtResource("1_5in4s")
