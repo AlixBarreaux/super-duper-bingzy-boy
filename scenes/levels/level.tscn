@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://clvfahlub0qtj"]
+[gd_scene load_steps=4 format=3 uid="uid://clvfahlub0qtj"]
 
 [ext_resource type="PackedScene" uid="uid://dd34c0dctbkpu" path="res://scenes/level_boundaries.tscn" id="1_gqnop"]
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_grg28"]
 [ext_resource type="PackedScene" uid="uid://vwhwlkl72cbl" path="res://experiments/actors.tscn" id="3_012w5"]
-[ext_resource type="PackedScene" uid="uid://c1mh5fhr2xxc0" path="res://scenes/camera_main.tscn" id="3_vhemg"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_grg28")
@@ -15,8 +14,8 @@ position = Vector2(12, 1177)
 
 [node name="Actors" parent="." instance=ExtResource("3_012w5")]
 
-[node name="CameraMain" parent="." node_paths=PackedStringArray("level_boundaries") instance=ExtResource("3_vhemg")]
-level_boundaries = NodePath("../LevelBoundaries")
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(944, -448)
 
 [editable path="LevelBoundaries"]
 [editable path="Actors"]

@@ -45,7 +45,7 @@ position = Vector2(48, -48)
 position = Vector2(144, -112)
 
 [node name="Player" parent="Actors/Players" index="0" instance=ExtResource("3_etgeo")]
-position = Vector2(544, -32)
+position = Vector2(544, -1408)
 
 [node name="CameraMain" parent="." index="3" node_paths=PackedStringArray("actor_to_follow")]
 actor_to_follow = NodePath("../Actors/Players/Player")
