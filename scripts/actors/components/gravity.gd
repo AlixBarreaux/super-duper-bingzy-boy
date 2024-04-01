@@ -3,7 +3,7 @@ extends Node2D
 
 @export var actor: Node2D = null
 @export var gravity: float = 100.0
-@export var gravity_multiplier_factor: float = 500.0
+@export var gravity_multiplier_factor: float = 50.0
 @export var max_fall_speed: float = 1500.0
 
 func apply_gravity() -> void:
