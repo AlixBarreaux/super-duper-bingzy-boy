@@ -15,7 +15,7 @@ var max_run_speed: float = 1000.0
 ## Factor to gain gradual move acceleration
 var move_acceleration_amount: float = 20.0
 ## Factor to loose gradual move acceleration
-var move_friction_amount: float = 30.0
+var move_friction_amount: float = 300.0
 
 var friction: float = 0.0
 
