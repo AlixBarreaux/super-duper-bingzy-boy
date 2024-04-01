@@ -7,7 +7,6 @@ class_name Level
 @onready var actors: Actors = $Actors
 
 
-signal loaded(node_name: String)
 signal completed
 
 func on_completed() -> void:
@@ -16,6 +15,5 @@ func on_completed() -> void:
 
 
 func _ready() -> void:
-	print(self.name, ": Loaded and ready!")
-	loaded.emit(self.get_name())
 	#assert(next_scene_to_load_file_path != "", "The next scene to load must be provided!")
+	pass
