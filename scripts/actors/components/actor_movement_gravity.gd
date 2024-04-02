@@ -1,4 +1,5 @@
 extends Node
+class_name ActorMovementGravity
 
 
 @export var actor: Node2D = null
