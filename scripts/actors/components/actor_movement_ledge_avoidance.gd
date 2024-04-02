@@ -1,5 +1,5 @@
 extends Node2D
-class_name ActorMovementNoLedgeFall
+class_name ActorMovementLedgeAvoidance
 
 
 @export var actor: Node2D = null

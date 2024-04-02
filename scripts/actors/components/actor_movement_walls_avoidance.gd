@@ -1,5 +1,5 @@
 extends Node
-class_name ActorMovementSideWalk
+class_name ActorMovementWallsAvoidance
 
 
 @export var actor: Node2D = null

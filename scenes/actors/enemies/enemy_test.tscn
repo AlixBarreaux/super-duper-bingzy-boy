@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/actors/enemies/enemy_test.gd" id="1_veg2i"]
 [ext_resource type="PackedScene" uid="uid://bb8wcqkbwhuxk" path="res://scenes/actors/components/actor_movement_gravity.tscn" id="2_6tnj8"]
-[ext_resource type="PackedScene" uid="uid://d00bv3vmdcanp" path="res://scenes/actors/components/actor_movement_side_walk.tscn" id="3_gvc4q"]
-[ext_resource type="PackedScene" uid="uid://dohicu3yn8h2s" path="res://scenes/actors/components/actor_movement_no_ledge_fall.tscn" id="4_w5wg3"]
+[ext_resource type="PackedScene" uid="uid://d00bv3vmdcanp" path="res://scenes/actors/components/actor_movement_walls_avoidance.tscn" id="3_gvc4q"]
+[ext_resource type="PackedScene" uid="uid://dohicu3yn8h2s" path="res://scenes/actors/components/actor_movement_actor_movement_ledge_avoidance.tscn" id="4_w5wg3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jihiw"]
 
@@ -18,8 +18,10 @@ move_speed = 20.0
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_jihiw")
 
-[node name="Gravity" parent="." instance=ExtResource("2_6tnj8")]
-
-[node name="ActorMovementNoLedgeFall" parent="." instance=ExtResource("4_w5wg3")]
+[node name="ActorMovementGravity" parent="." instance=ExtResource("2_6tnj8")]
 
 [node name="ActorMovementSideWalk" parent="." instance=ExtResource("3_gvc4q")]
+
+[node name="ActorMovementLedgeAvoidance" parent="." instance=ExtResource("4_w5wg3")]
+
+[editable path="ActorMovementLedgeAvoidance"]
