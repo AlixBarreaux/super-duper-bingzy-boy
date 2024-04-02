@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3m5ukvillmx2"]
 
 [ext_resource type="PackedScene" uid="uid://clvfahlub0qtj" path="res://scenes/levels/level.tscn" id="1_rchbi"]
-[ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/actors/enemies/WalkingEnemy.tscn" id="2_qaqaq"]
+[ext_resource type="PackedScene" uid="uid://3n5a5e3n5bqf" path="res://scenes/actors/enemies/enemy_test.tscn" id="2_qaqaq"]
 [ext_resource type="PackedScene" uid="uid://bk56atys4ef4u" path="res://scenes/actors/player.tscn" id="3_etgeo"]
 [ext_resource type="Texture2D" uid="uid://37fu3trneawi" path="res://miscellaneous/icon.svg" id="4_qjo0x"]
 [ext_resource type="PackedScene" uid="uid://03xkuno7sv3l" path="res://scenes/actors/components/actor_movement_straight_line.tscn" id="5_q4fk0"]
